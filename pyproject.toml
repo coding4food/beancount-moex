@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "beancount-moex"
+version = "0.1.0"
+description = ""
+authors = ["Anatoly Medvedkov <32126+coding4food@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "beancount_moex"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.group.beancount]
+optional = true
+
+[tool.poetry.group.beancount.dependencies]
+beancount = "^2.3.5"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
