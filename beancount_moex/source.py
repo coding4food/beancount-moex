@@ -39,7 +39,7 @@ def _get_quote(ticker: str, date=None):
     columns = result["history"]["columns"]
     data = result["history"]["data"][0]
 
-    price = decimal.Decimal.from_float(data[columns.index("CLOSE")])
+    price = decimal.Decimal.from_float(data[columns.index("CLOSE")] or 0)
 
     if market == "bonds":
         price = (price / 100) * decimal.Decimal.from_float(data[columns.index("FACEVALUE")])
