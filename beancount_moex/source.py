@@ -24,11 +24,11 @@ def _get_quote(ticker: str, date=None):
     if len(ticker_parts) == 4:
         engine, market, board, symbol = ticker_parts
         url_template = BOARD_DATE_URL if date is not None else BOARD_LATEST_URL
-        url = url_template.format(engine=engine, market=market, board=board, symbol=symbol, date=date)
+        url = url_template.format(engine=engine, market=market, board=board, symbol=symbol, date=date.date())
     elif len(ticker_parts) == 3:
         engine, market, symbol = ticker_parts
         url_template = DATE_URL if date is not None else LATEST_URL
-        url = url_template.format(engine=engine, market=market, symbol=symbol, date=date)
+        url = url_template.format(engine=engine, market=market, symbol=symbol, date=date.date())
     else:
         raise ValueError("Invalid ticker format")
 
